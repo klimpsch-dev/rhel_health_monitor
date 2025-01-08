@@ -18,11 +18,6 @@ def get_network_info():
     net_io = psutil.net_io_counters()
     return f"Bytes Sent: {net_io.bytes_sent/1e6:.2f}MB, Bytes Recv: {net_io.bytes_recv/1e6:.2f}MB"
 
-def get_battery_info():
-    battery = psutil.sensors_battery()
-    if battery:
-        return f"Battery: {battery.percent}%, Plugged In: {battery.power_plugged}"
-    return "Battery information not available"
 
 def get_boot_time():
     boot_time = psutil.boot_time()
@@ -35,10 +30,3 @@ def get_process_list():
     return processes[:5]  # Return first 5 processes as an example
 
 # Usage
-print(get_cpu_info())
-print(get_memory_info())
-print(get_disk_info())
-print(get_network_info())
-print(get_battery_info())
-print(get_boot_time())
-print("Sample Processes:", get_process_list())
